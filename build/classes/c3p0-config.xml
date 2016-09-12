@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<c3p0-config>
+	<default-config> 
+		<property name="jdbcUrl">
+			<![CDATA[
+				jdbc:mysql://192.168.1.66/jianguan?autoReconnect=true&useUnicode=true&characterEncoding=UTF8&useServerPrepStmts=true&prepStmtCacheSqlLimit=256&cachePrepStmts=true&prepStmtCacheSize=256&rewriteBatchedStatements=true
+			]]>
+		</property>
+		<property name="driverClass">com.mysql.jdbc.Driver</property>
+		<property name="user">root</property>
+		<property name="password">1908366654</property>
+		
+		<property name="acquireIncrement">3</property>
+		<property name="initialPoolSize">10</property>
+		<property name="minPoolSize">2</property>
+		<property name="maxPoolSize">10</property>
+		
+		<property name="maxIdleTime">1800</property>
+		<property name="testConnectionOnCheckin">true</property>
+		<property name="automaticTestTable">C3P0TestTable</property>
+		<property name="idleConnectionTestPeriod">18000</property>
+	</default-config>
+</c3p0-config>
