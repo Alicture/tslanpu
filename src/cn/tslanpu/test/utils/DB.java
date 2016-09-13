@@ -13,7 +13,7 @@ public class DB {
 	public static Connection getConn() {
 		Connection conn = null;
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://localhost:3306/lanpuelevator?user=root&password=1908366654aB&characterEncoding=UTF-8&mysqlEncoding=UTF-8";
+		String url = "jdbc:mysql://192.168.1.66:3306/jianguan?user=root&password=1908366654aB&characterEncoding=UTF-8&mysqlEncoding=UTF-8";
 		try {
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url);

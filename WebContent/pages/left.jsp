@@ -81,11 +81,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <i class="fa fa-angle-left pull-right"></i>
                </a>
                 <ul class="treeview-menu">
-			 			<li class="active"><a href="<c:url value='/pages/exam/food.jsp'/>"><i class="fa fa-circle-o"></i>食品</a></li>
-			 			<li class="active"><a href="<c:url value='/pages/exam/drug.jsp'/>"><i class="fa fa-circle-o"></i>药品</a></li>
-			 			<li class="active"><a href="<c:url value='/pages/exam/medicaltec.jsp'/>"><i class="fa fa-circle-o"></i>医疗机械</a></li>
-			 			<li class="active"><a href="<c:url value='/pages/exam/medicalfood.jsp'/>"><i class="fa fa-circle-o"></i>保健食品</a></li>
-			 			<li class="active"><a href="<c:url value='/pages/exam/makeup.jsp'/>"><i class="fa fa-circle-o"></i>化妆品</a></li>
+			 			<li class="active"><a href="<c:url value='/pages/exam/food/food.jsp'/>"><i class="fa fa-circle-o"></i>食品</a></li>
+			 			<li class="active"><a href="<c:url value='/pages/exam/drug/drug.jsp'/>"><i class="fa fa-circle-o"></i>药品</a></li>
+			 			<li class="active"><a href="<c:url value='/pages/exam/medicaltec/medicaltec.jsp'/>"><i class="fa fa-circle-o"></i>医疗机械</a></li>
+			 			<li class="active"><a href="<c:url value='/pages/exam/medicalfood/medicalfood.jsp'/>"><i class="fa fa-circle-o"></i>保健食品</a></li>
+			 			<li class="active"><a href="<c:url value='/pages/exam/makeup/makeup.jsp'/>"><i class="fa fa-circle-o"></i>化妆品</a></li>
               		</ul>
              
              
