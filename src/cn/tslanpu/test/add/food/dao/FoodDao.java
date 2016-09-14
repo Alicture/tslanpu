@@ -5,9 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.MapHandler;
+import org.apache.commons.dbutils.handlers.MapListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import cn.itcast.jdbc.TxQueryRunner;
@@ -31,17 +32,12 @@ public class FoodDao {
 						food.getLatitude(),food.getType(),food.getRemark(),food.getAmend(),food.getFddelegate(),food.getFdphone() };
 			qr.update(sql, params);
 	}
-
+	
 	//查询餐饮企业公司详细信息
 	public Food foodFind(int id) throws SQLException{
 			String sql = "select * from food where id=?";
 			return qr.query(sql, new BeanHandler<Food>(Food.class), id);
 	}
-	//查询所有企业名称
-	public Food qynameFind() throws SQLException{
-		String sql = "select qyname , id from food";
-		return qr.query(sql, new BeanHandler<Food>(Food.class));
-}
 	//更改餐饮企业单位信息
 	public void foodUpdate(int id, Food food) throws SQLException{
 			String sql = "update food set qyname=?, address=?, scaddress=?, ems=?, qydelegate=?, qyphone=?, jjtype=?,email=?, gsorganization=?, zzcode=?, " +
@@ -61,7 +57,6 @@ public class FoodDao {
 			String sql = "delete from food where id=?";
 			qr.update(sql, id);
 	}
-	
 	//根据公司名称进行模糊查询
 	public PageBean<Food> queryByName(String qyname, int pageCode) throws SQLException{
 		List<Expression> experList = new ArrayList<Expression>();
@@ -74,6 +69,11 @@ public class FoodDao {
 		List<Expression> experList = new ArrayList<Expression>();
 		experList.add(new Expression("department", "=", department));
 		return findByCriteria(experList, pageCode);
+	}
+	//查找企业名称
+	public List qynameData() throws SQLException{
+		String sql = "select qyname,id from food";
+		return qr.query(sql, new MapListHandler());
 	}
 	
 	//查询流通单位所有公司名称

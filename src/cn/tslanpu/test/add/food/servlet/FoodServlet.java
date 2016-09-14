@@ -1,6 +1,9 @@
 package cn.tslanpu.test.add.food.servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -10,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import cn.itcast.commons.CommonUtils;
 import cn.tslanpu.test.add.food.domain.Food;
 import cn.tslanpu.test.add.food.service.FoodService;
-import cn.tslanpu.test.add.industry.domain.Industry;
 import cn.tslanpu.test.admin.domain.Admin;
 import cn.tslanpu.test.utils.BaseServlet;
 import cn.tslanpu.test.utils.TokenProccessor;
@@ -19,7 +21,14 @@ public class FoodServlet extends BaseServlet {
 	
 	private static final long serialVersionUID = 1L;
 	private FoodService foodService = new FoodService();
-	
+	public void findQYname(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, SQLException {
+		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+		list=(List<Map<String, String>>) foodService.FindQyname();
+		request.setAttribute("qy", list);
+		request.getRequestDispatcher("/pages/exam/food.jsp").forward(request, response);
+		
+	}
 	//增加信息
 	public void add(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

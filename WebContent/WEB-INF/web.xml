@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
   <servlet>
     <servlet-name>CriculateServlet</servlet-name>
     <servlet-class>cn.tslanpu.test.add.Criculate.servlet.CriculateServlet</servlet-class>
@@ -170,12 +174,138 @@
     <servlet-name>UsemedServlet</servlet-name>
     <servlet-class>cn.tslanpu.test.add.usemed.servlet.UsemedServlet</servlet-class>
   </servlet>
-  <filter>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+	<filter>
     <display-name>AllFilter</display-name>
     <filter-name>AllFilter</filter-name>
     <filter-class>cn.tslanpu.test.filter.AllFilter</filter-class>
   </filter>
-  <servlet-mapping>
+
+ <!--<filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/pages/*</url-pattern>
+  </filter-mapping>
+   <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/FoodServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/servlet/CriculateServlet1</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/ProductionServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/ActionServlet</url-pattern>
+  </filter-mapping>
+   <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/UserFindServlet</url-pattern>
+  </filter-mapping>
+   <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/UserAdd</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/UserDepServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/FormServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/CriculateFormServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/ProdectionFormServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/FoodFormServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/UserNameServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/UserQuitServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/ProductionFormServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/UserDeleteServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/UserUpdateServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/UserInforServlet</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>AllFilter</filter-name>
+    <url-pattern>/CriculateFindName</url-pattern>
+  </filter-mapping>
+  
+  
+  
+  --><servlet-mapping>
     <servlet-name>CriculateServlet1</servlet-name>
     <url-pattern>/servlet/CriculateServlet1</url-pattern>
   </servlet-mapping>
@@ -318,4 +448,10 @@
   <welcome-file-list>
     <welcome-file>/login.jsp</welcome-file>
   </welcome-file-list>
+  
+  
+  
+  
+  
+  
 </web-app>

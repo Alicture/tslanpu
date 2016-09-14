@@ -2,6 +2,7 @@ package cn.tslanpu.test.add.production.service;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import cn.tslanpu.test.add.production.dao.ProductionDao;
 import cn.tslanpu.test.add.production.domain.Production;
@@ -95,6 +96,22 @@ public class ProductionService {
 			String department, String fddelegate, String zzcode, int pageCode) {
 		try {
 			return productionDao.queryZ(qyname, address, department, fddelegate, zzcode, pageCode);
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	public  List dispNameData() {
+		try {
+			return productionDao.dispNameData();
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+	public Production byqynameFull(String qyname) {
+		try {
+			System.out.println("已经ajax");
+			return productionDao.byqynameFull(qyname);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

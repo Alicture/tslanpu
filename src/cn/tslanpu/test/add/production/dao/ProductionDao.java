@@ -3,10 +3,13 @@ package cn.tslanpu.test.add.production.dao;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.MapHandler;
+import org.apache.commons.dbutils.handlers.MapListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import cn.itcast.jdbc.TxQueryRunner;
@@ -160,5 +163,16 @@ public class ProductionDao {
 		pb.setPageSize(pageSize);
 		pb.setTotalRecord(totalRecord);
 		return pb;
+	}
+	
+	//获取全部生产企业名称和id
+	public List dispNameData() throws SQLException {
+		String sql = "select id,qyname from production" ;
+		return qr.query(sql, new MapListHandler());
+	}
+	//根据企业名称查询Production对象
+	public Production byqynameFull(String qyname) throws SQLException {
+		String sql = "select * from production where qyname=?" ;
+		return (Production) qr.query(sql, new BeanHandler(Production.class),qyname);
 	}
 }

@@ -94,6 +94,7 @@
                 </form>
                 
                 <form  id="formValidate" action="" method="post">
+                
                   <input type="hidden" name="method" value="infor">
                   <input id="id" type="hidden" name="id">
                   <input id="page" type="hidden" name="page">

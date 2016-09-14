@@ -1,16 +1,24 @@
 package cn.tslanpu.test.add.production.servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.sf.json.JSON;
+import net.sf.json.JSONObject;
+
 import cn.itcast.commons.CommonUtils;
 import cn.tslanpu.test.add.production.domain.Production;
 import cn.tslanpu.test.add.production.service.ProductionService;
+import cn.tslanpu.test.add.usemed.domain.Usemed;
 import cn.tslanpu.test.admin.domain.Admin;
+import cn.tslanpu.test.pager.PageBean;
 import cn.tslanpu.test.utils.BaseServlet;
 import cn.tslanpu.test.utils.TokenProccessor;
 
@@ -19,6 +27,29 @@ public class ProductionServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
 	private ProductionService productionService = new ProductionService();
 	
+	//通过单位名称补全表单
+	public void byqynameFull(HttpServletRequest request, HttpServletResponse response)
+				throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=utf-8");
+		((HttpServletResponse)response).addHeader("Access-Control-Allow-Origin", "*");
+		Production byqynamePro = productionService.byqynameFull(request.getParameter("qyname"));
+		Map<String, Object> map = new HashMap<String, Object>();
+				map.put("byqynamePro", byqynamePro);
+				JSON jsonData = JSONObject.fromObject(map);
+				System.out.println(jsonData);
+				response.getWriter().print(jsonData);
+				
+	}
+	
+	//作用于通过关键字来获取被检查单位名称
+	public void dispNameData(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+			List<Map<String, String>> list = new ArrayList<Map<String, String>>();
+			list=productionService.dispNameData();
+			request.setAttribute("qy", list);
+			request.getRequestDispatcher("/pages/inspect/foodregular.jsp").forward(request, response);
+}
 	public void adddd(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 

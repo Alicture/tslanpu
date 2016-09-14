@@ -1,8 +1,8 @@
-package cn.tslanpu.test.admin.servlet;
+package cn.tslanpu.test.add.food.servlet;
 
+import java.awt.List;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,21 +10,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.tslanpu.test.add.food.dao.FoodDao;
+import com.mysql.fabric.xmlrpc.base.Array;
 
-import cn.tslanpu.test.add.food.domain.Food;
+import cn.tslanpu.test.add.food.service.FoodService;
+import cn.tslanpu.test.utils.TokenProccessor;
 
 /**
- * Servlet implementation class FoodAjaxServlet
+ * Servlet implementation class examfoodd
  */
-@WebServlet("/FoodAjaxServlet")
-public class FoodAjaxServlet extends HttpServlet {
+@WebServlet("/examfoodd")
+public class ExamFoodServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public FoodAjaxServlet() {
+    public ExamFoodServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,29 +34,12 @@ public class FoodAjaxServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 response.setContentType("text/xml; charset=utf-8"); 
-
-		    PrintWriter out = response.getWriter(); 
-
-		    String str;
-		    Integer id;
-			FoodDao dao = new FoodDao();
-			Food food;
-			try
-			{
-				food = dao.qynameFind();
-				str = food.getQyname();
-				id = food.getId();
-				System.out.println(str);
-				out.println(str); 
-			} catch (SQLException e)
-			{
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} 
-				
 		
-		   
+		String token = TokenProccessor.getInstance().makeToken();//创建令牌
+		
+		request.getSession().setAttribute("tokenE", token);
+		
+		response.sendRedirect("/tslanpu/pages/exam/food/food.jsp");
 	}
 
 	/**

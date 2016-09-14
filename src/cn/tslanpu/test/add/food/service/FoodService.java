@@ -1,5 +1,6 @@
 package cn.tslanpu.test.add.food.service;
 
+import java.util.List;
 import java.sql.SQLException;
 
 import cn.tslanpu.test.add.food.dao.FoodDao;
@@ -14,6 +15,15 @@ public class FoodService {
 		try {
 			foodDao.add(food);
 		} catch (SQLException e) {
+			throw new RuntimeException();
+		}
+	}
+	public List FindQyname(){
+		try
+		{
+			return foodDao.qynameData();
+		} catch (SQLException e)
+		{
 			throw new RuntimeException();
 		}
 	}

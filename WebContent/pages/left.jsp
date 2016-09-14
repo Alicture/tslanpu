@@ -5,7 +5,6 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <section class="sidebar">
@@ -51,6 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
              			<i class="fa fa-circle-o"></i> <span>现场检查</span><i class="fa fa-angle-left pull-right"></i>
              		</a>
              		<ul class="treeview-menu">
+			 			<li class="active"><a href="<c:url value='/ProductionServlet?method=dispNameData'/>"><i class="fa fa-circle-o"></i>食品日常监督检查记录</a></li>             			
 			 			<li class="active"><a href="<c:url value='/pages/inspect/product.jsp'/>"><i class="fa fa-circle-o"></i>生产环节</a></li>
 			 			<li class="active"><a href="<c:url value='/pages/inspect/criculate.jsp'/>"><i class="fa fa-circle-o"></i>流通环节</a></li>
 			 			<li class="active"><a href="<c:url value='/pages/inspect/food.jsp'/>"><i class="fa fa-circle-o"></i>消费环节</a></li>
@@ -79,15 +79,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
               <a href="javascript:void(0)">
                 <i class="fa fa-table"></i> <span>抽样检验</span>
                 <i class="fa fa-angle-left pull-right"></i>
-               </a>
-                <ul class="treeview-menu">
-			 			<li class="active"><a href="<c:url value='/pages/exam/food/food.jsp'/>"><i class="fa fa-circle-o"></i>食品</a></li>
-			 			<li class="active"><a href="<c:url value='/pages/exam/drug/drug.jsp'/>"><i class="fa fa-circle-o"></i>药品</a></li>
-			 			<li class="active"><a href="<c:url value='/pages/exam/medicaltec/medicaltec.jsp'/>"><i class="fa fa-circle-o"></i>医疗机械</a></li>
-			 			<li class="active"><a href="<c:url value='/pages/exam/medicalfood/medicalfood.jsp'/>"><i class="fa fa-circle-o"></i>保健食品</a></li>
-			 			<li class="active"><a href="<c:url value='/pages/exam/makeup/makeup.jsp'/>"><i class="fa fa-circle-o"></i>化妆品</a></li>
-              		</ul>
-             
+                
+              </a>
+              <ul class="treeview-menu">
+                <li class="active"><a href="<c:url value='/FoodServlet?method=findQYname'/>"><i class="fa fa-circle-o"></i>食品</a></li>             			
+			 			<li class="active"><a href="<c:url value='/pages/inspect/product.jsp'/>"><i class="fa fa-circle-o"></i>药品</a></li>
+			 			<li class="active"><a href="<c:url value='/pages/inspect/criculate.jsp'/>"><i class="fa fa-circle-o"></i>医疗机械</a></li>
+			 			<li class="active"><a href="<c:url value='/pages/inspect/food.jsp'/>"><i class="fa fa-circle-o"></i>保健食品</a></li>
+                </ul>
              
             </li>
             <li class="treeview">
